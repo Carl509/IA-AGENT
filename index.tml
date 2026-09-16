@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>IA Agent — Business Assistant</title>
+
+  <meta
+    name="description"
+    content="IA Agent est votre assistant intelligent pour gérer votre activité."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-logo">✦</div>
+
+      <div>
+        <strong>IA Agent</strong>
+        <span>Business Assistant</span>
+      </div>
+    </div>
+
+    <nav class="navigation">
+
+      <button class="nav-item active" data-page="dashboard">
+        <span>⌂</span>
+        <label>Dashboard</label>
+      </button>
+
+      <button class="nav-item" data-page="assistant">
+        <span>✦</span>
+        <label>Assistant IA</label>
+      </button>
+
+      <button class="nav-item" data-page="clients">
+        <span>♙</span>
+        <label>Clients</label>
+      </button>
+
+      <button class="nav-item" data-page="orders">
+        <span>▣</span>
+        <label>Commandes</label>
+      </button>
+
+      <button class="nav-item" data-page="products">
+        <span>◇</span>
+        <label>Produits</label>
+      </button>
+
+      <button class="nav-item" data-page="marketing">
+        <span>↗</span>
+        <label>Marketing</label>
+      </button>
+
+    </nav>
+
+    <div class="sidebar-footer">
+
+      <button class="nav-item">
+        <span>⚙</span>
+        <label>Paramètres</label>
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+
+      <div>
+
+        <p class="eyebrow">
+          ESPACE BUSINESS
+        </p>
+
+        <h1>
+          Bonjour, bienvenue.
+        </h1>
+
+      </div>
+
+      <div class="status">
+        <span></span>
+        IA prête
+      </div>
+
+    </header>
+
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page active-page">
+
+      <!-- HERO -->
+      <section class="hero">
+
+        <div class="hero-content">
+
+          <p class="eyebrow">
+            VOTRE ASSISTANT
+          </p>
+
+          <h2>
+            Que voulez-vous
+            <br>
+            <em>accomplir</em> aujourd'hui ?
+          </h2>
+
+          <p class="hero-text">
+            Analysez votre activité, gérez vos clients,
+            suivez vos commandes et créez votre marketing
+            avec votre assistant IA.
+          </p>
+
+          <button
+            class="primary-button"
+            onclick="openAssistant()"
+          >
+            <span>✦</span>
+            Parler à l'IA
+          </button>
+
+        </div>
+
+
+        <div class="hero-orb">
+
+          <div class="orb-ring ring-1"></div>
+          <div class="orb-ring ring-2"></div>
+
+          <div class="orb-core">
+            ✦
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- STATS -->
+      <section class="stats">
+
+        <article class="stat-card">
+
+          <div class="stat-icon">
+            $
+          </div>
+
+          <div>
+            <span>Chiffre d'affaires</span>
+
+            <strong id="revenue">
+              0 HTG
+            </strong>
+
+            <small>
+              Ce mois-ci
+            </small>
+          </div>
+
+        </article>
+
+
+        <article class="stat-card">
+
+          <div class="stat-icon">
+            #
+          </div>
+
+          <div>
+            <span>Commandes</span>
+
+            <strong id="ordersCount">
+              0
+            </strong>
+
+            <small>
+              Ce mois-ci
+            </small>
+          </div>
+
+        </article>
+
+
+        <article class="stat-card">
+
+          <div class="stat-icon">
+            ♙
+          </div>
+
+          <div>
+            <span>Clients</span>
+
+            <strong id="clientsCount">
+              0
+            </strong>
+
+            <small>
+              Total
+            </small>
+          </div>
+
+        </article>
+
+
+        <article class="stat-card">
+
+          <div class="stat-icon">
+            ◇
+          </div>
+
+          <div>
+            <span>Produits</span>
+
+            <strong id="productsCount">
+              0
+            </strong>
+
+            <small>
+              Catalogue
+            </small>
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- WORKSPACE -->
+      <section class="workspace">
+
+
+        <!-- QUICK ACTIONS -->
+        <div class="panel">
+
+          <div class="section-title">
+
+            <div>
+              <h3>
+                Actions rapides
+              </h3>
+
+              <span>
+                Commencez ici
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="quick-grid">
+
+
+            <button
+              class="action-card"
+              onclick="openAssistant()"
+            >
+
+              <div class="action-icon">
+                ✦
+              </div>
+
+              <strong>
+                Parler à l'IA
+              </strong>
+
+              <small>
+                Poser une question à votre assistant
+              </small>
+
+            </button>
+
+
+            <button
+              class="action-card"
+              onclick="showMessage('Nouvelle commande')"
+            >
+
+              <div class="action-icon">
+                ＋
+              </div>
+
+              <strong>
+                Nouvelle commande
+              </strong>
+
+              <small>
+                Enregistrer une nouvelle vente
+              </small>
+
+            </button>
+
+
+            <button
+              class="action-card"
+              onclick="showMessage('Ajouter un client')"
+            >
+
+              <div class="action-icon">
+                ♙
+              </div>
+
+              <strong>
+                Ajouter un client
+              </strong>
+
+              <small>
+                Créer une fiche client
+              </small>
+
+            </button>
+
+
+            <button
+              class="action-card"
+              onclick="openMarketing()"
+            >
+
+              <div class="action-icon">
+                ↗
+              </div>
+
+              <strong>
+                Créer du contenu
+              </strong>
+
+              <small>
+                Publication pour vos réseaux
+              </small>
+
+            </button>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- AI INSIGHT -->
+        <div class="panel ai-panel">
+
+          <div class="section-title">
+
+            <div>
+
+              <h3>
+                Assistant IA
+              </h3>
+
+              <span class="online">
+                ● En ligne
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="chat-preview">
+
+            <div class="ai-avatar">
+              ✦
+            </div>
+
+            <div>
+
+              <strong>
+                Je suis prêt à vous aider.
+              </strong>
+
+              <p>
+                Demandez-moi d'analyser vos ventes,
+                préparer une publication ou organiser
+                vos commandes.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="prompt-box">
+
+            <input
+              id="prompt"
+              type="text"
+              placeholder="Écrivez votre demande..."
+              autocomplete="off"
+            >
+
+            <button onclick="askAI()">
+              →
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+    <!-- ASSISTANT -->
+    <section
+      id="assistant"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <p class="eyebrow">
+          INTELLIGENCE ARTIFICIELLE
+        </p>
+
+        <h2>
+          Votre Assistant IA
+        </h2>
+
+        <p>
+          Posez une question à votre assistant business.
+        </p>
+
+      </div>
+
+
+      <div class="assistant-container">
+
+        <div
+          id="chatMessages"
+          class="chat-messages"
+        >
+
+          <div class="message ai-message">
+
+            <div class="message-avatar">
+              ✦
+            </div>
+
+            <div class="message-content">
+
+              <strong>
+                IA Agent
+              </strong>
+
+              <p>
+                Bonjour. Je peux vous aider à analyser
+                vos ventes, vos produits, vos clients
+                ou votre marketing.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="chat-input">
+
+          <input
+            id="assistantInput"
+            type="text"
+            placeholder="Exemple : Analyse mes ventes..."
+            autocomplete="off"
+          >
+
+          <button onclick="sendAssistantMessage()">
+            Envoyer
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLIENTS -->
+    <section
+      id="clients"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <p class="eyebrow">
+          CLIENTS
+        </p>
+
+        <h2>
+          Gestion des clients
+        </h2>
+
+        <p>
+          Gérez votre relation avec vos clients.
+        </p>
+
+      </div>
+
+
+      <div class="empty-state">
+
+        <div>
+          ♙
+        </div>
+
+        <h3>
+          Aucun client
+        </h3>
+
+        <p>
+          Vos clients apparaîtront ici.
+        </p>
+
+        <button
+          class="primary-button"
+          onclick="showMessage('Fonction clients bientôt disponible')"
+        >
+          Ajouter un client
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ORDERS -->
+    <section
+      id="orders"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <p class="eyebrow">
+          COMMANDES
+        </p>
+
+        <h2>
+          Vos commandes
+        </h2>
+
+        <p>
+          Suivez vos ventes et commandes.
+        </p>
+
+      </div>
+
+
+      <div class="empty-state">
+
+        <div>
+          ▣
+        </div>
+
+        <h3>
+          Aucune commande
+        </h3>
+
+        <p>
+          Vos commandes apparaîtront ici.
+        </p>
+
+        <button
+          class="primary-button"
+          onclick="showMessage('Création de commande bientôt disponible')"
+        >
+          Nouvelle commande
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section
+      id="products"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <p class="eyebrow">
+          CATALOGUE
+        </p>
+
+        <h2>
+          Produits
+        </h2>
+
+        <p>
+          Gérez votre catalogue et votre stock.
+        </p>
+
+      </div>
+
+
+      <div class="empty-state">
+
+        <div>
+          ◇
+        </div>
+
+        <h3>
+          Aucun produit
+        </h3>
+
+        <p>
+          Ajoutez vos produits pour permettre à l'IA
+          d'analyser votre activité.
+        </p>
+
+        <button
+          class="primary-button"
+          onclick="showMessage('Gestion des produits bientôt disponible')"
+        >
+          Ajouter un produit
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- MARKETING -->
+    <section
+      id="marketing"
+      class="page"
+    >
+
+      <div class="page-header">
+
+        <p class="eyebrow">
+          MARKETING
+        </p>
+
+        <h2>
+          Marketing IA
+        </h2>
+
+        <p>
+          Créez du contenu pour développer votre activité.
+        </p>
+
+      </div>
+
+
+      <div class="marketing-grid">
+
+        <button class="marketing-card">
+
+          <span>f</span>
+
+          <strong>
+            Publication Facebook
+          </strong>
+
+          <small>
+            Générer une publication commerciale
+          </small>
+
+        </button>
+
+
+        <button class="marketing-card">
+
+          <span>▶</span>
+
+          <strong>
+            Script vidéo
+          </strong>
+
+          <small>
+            Créer un script pour une vidéo courte
+          </small>
+
+        </button>
+
+
+        <button class="marketing-card">
+
+          <span>♧</span>
+
+          <strong>
+            Publicité
+          </strong>
+
+          <small>
+            Préparer une campagne publicitaire
+          </small>
+
+        </button>
+
+
+        <button class="marketing-card">
+
+          <span>✦</span>
+
+          <strong>
+            Idées de contenu
+          </strong>
+
+          <small>
+            Trouver de nouvelles idées
+          </small>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- NOTIFICATION -->
+  <div
+    id="notification"
+    class="notification"
+  ></div>
+
+
+  <script src="app.js"></script>
+
+</body>
+</html>
